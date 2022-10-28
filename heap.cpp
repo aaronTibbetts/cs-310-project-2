@@ -144,15 +144,16 @@ void deleteForMax(heap &minHeap, int pos){
 }
 
 void increaseKey(heap &maxHeap, int pos, int newKey){
-    if ((pos < maxHeap.size) && (maxHeap.A[pos]->key < newKey)){
-        maxHeap.A[pos]->key = newKey;
+    if ((pos < maxHeap.size) && (maxHeap.A[pos-1]->key < newKey)){
+        maxHeap.A[pos-1]->key = newKey;
         buildHeapMax(maxHeap);
+        
     }
 }
 
 void decreaseKey(heap &minHeap, int pos, int newKey){
-    if ((pos < minHeap.size) && (minHeap.a[pos]->key > newKey)){
-        minHeap.a[pos]->key = newKey;
+    if ((pos < minHeap.size) && (minHeap.a[pos-1]->key > newKey)){
+        minHeap.a[pos-1]->key = newKey;
         buildHeapMin(minHeap);
     }
 }
