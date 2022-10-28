@@ -56,6 +56,8 @@ void readCommands(string command, int ADT, heap &Heap){
     } else if(command.compare("IncreaseKey") == 0){
         if(ADT == 2){
             cerr << "Error: IncreaseKey in a min heap or a null/empty heap" <<'\n';
+            cin >> command;
+            readCommands(command, ADT, Heap);
         }
         int userKey;
         int pos;
@@ -213,7 +215,7 @@ void write(heap &Heap, int ADT){
             outputFile.close();
         } else if (ADT == 2){
             outputFile << "MinHeap: ";
-              outputFile << Heap.a[0]->key;
+            outputFile << Heap.a[0]->key;
             for (int i = 1 ; i < Heap.size; i++){
                 outputFile << ", ";
                 outputFile << Heap.a[i]->key;
