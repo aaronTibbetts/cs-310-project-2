@@ -41,7 +41,7 @@ void readCommands(string command, int ADT, heap &Heap){
         }
         if(ADT == 3){
             extractMax(Heap, ADT);
-            deleteMax(Heap, Heap.size - 1);
+            deleteMin(Heap, Heap.size - 1);
             cin >> command;
             readCommands(command, ADT, Heap);
         } else {

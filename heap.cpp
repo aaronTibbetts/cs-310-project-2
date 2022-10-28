@@ -153,10 +153,12 @@ void decreaseKey(heap &minHeap, int pos, int newKey){
 
 void deleteMin(heap &maxHeap, int pos){
    if(pos < maxHeap.size){
+        cout << "key is ="<<maxHeap.a[pos]->key << endl; 
+        cout << "pos is = "<<pos<< endl;
         maxHeap.a[pos] = maxHeap.a[maxHeap.size-1];
         //maxHeap.size = maxHeap.size -1; 
 
-        if (pos > 0 && pos < maxHeap.size && maxHeap.a[pos]->key < maxHeap.a[pos/2]->key){
+        if (pos >= 0 && pos < maxHeap.size && maxHeap.a[pos]->key < maxHeap.a[pos/2]->key){
             while (pos > 0 && pos < maxHeap.size && maxHeap.a[pos]->key < maxHeap.a[pos/2]->key){
                 ELEMENT* temp = maxHeap.a[pos];
                 maxHeap.a[pos] = maxHeap.a[pos/2];
