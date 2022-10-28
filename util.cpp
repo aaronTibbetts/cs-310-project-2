@@ -58,6 +58,7 @@ void readCommands(string command, int ADT, heap &Heap){
         int pos;
         cin >> pos;
         cin >> userKey;
+        pos = pos -1;
         if(ADT == 2 || Heap.size == 0 || pos > Heap.size || userKey < Heap.A[pos]->key){
             cerr << "Error: Invalid position or newKey in IncreaseKey" << '\n';
             cin >> command;
@@ -74,6 +75,7 @@ void readCommands(string command, int ADT, heap &Heap){
         int pos;
         cin >> pos;
         cin >> userKey;
+        pos = pos - 1;
         if(ADT == 1 || Heap.size == 0 || pos > Heap.size || userKey > Heap.a[pos]->key){
             cerr << "Error: Invalid position or newKey in DecreaseKey" << '\n';
             cin >> command;
