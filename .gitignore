@@ -1,4 +1,4 @@
 HEAPifile.txt
-*.o
+./*.o
 PJ2
 .vscode/

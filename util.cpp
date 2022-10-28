@@ -38,16 +38,17 @@ void readCommands(string command, int ADT, heap &Heap){
              cerr << "Error: ExtractMax in a min heap or a null/empty heap" << '\n';
              cin >> command;
              readCommands(command, ADT, Heap);
-        }
+        } else {
             extractMax(Heap, ADT);
             cin >> command;
-            readCommands(command, ADT, Heap);      
+            readCommands(command, ADT, Heap);
+        }      
     } else if(command.compare("ExtractMin") == 0){
         if(ADT == 1 || Heap.size == 0){
             cerr << "Error: ExtractMin in a min heap or a null/empty heap" << '\n';
             cin >> command;
             readCommands(command, ADT, Heap);
-        }
+        } else {
             extractMin(Heap, ADT);
             cin >> command;
             readCommands(command, ADT, Heap);
