@@ -99,9 +99,6 @@ void extractMax(heap &maxHeap, int ADT){
 }
 
 void insert(int key, heap &Heap, int ADT){
-    if(Heap.size == Heap.capacity){
-        cout << "Heap full can't insert anymore"; 
-    } else {
         Heap.size = Heap.size + 1;
         int i = Heap.size-1;
         if (ADT == 1){
@@ -122,7 +119,6 @@ void insert(int key, heap &Heap, int ADT){
             buildHeapMax(Heap);
             buildHeapMin(Heap);
         }
-    }
 }
 
 void deleteForMax(heap &minHeap, int pos){

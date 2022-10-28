@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char* argv[]){
   
     try{
-        int userCapacity = std::stoi(argv[2]);
+        int userCapacity; 
         int ADT;
         string command;
 
@@ -15,7 +15,8 @@ int main(int argc, char* argv[]){
             throw(1);
         } else if (strcmp("MaxHeap", argv[1]) == 0 && userCapacity > 0){
             ADT = 1;
-            heap maxHeap; 
+            heap maxHeap;
+            userCapacity = std::stoi(argv[2]); 
             maxHeap.capacity = userCapacity;
             maxHeap.size = 0;
             cin >> command;
@@ -24,6 +25,7 @@ int main(int argc, char* argv[]){
         } else if (strcmp("MinHeap", argv[1]) == 0 && userCapacity > 0 ){
             ADT = 2;
             heap minHeap; 
+            userCapacity = std::stoi(argv[2]);
             minHeap.capacity = userCapacity;
             minHeap.size = 0;
             cin >> command;
@@ -31,6 +33,7 @@ int main(int argc, char* argv[]){
         } else if (strcmp("DoubleHeap", argv[1]) == 0 && userCapacity > 0){
             ADT = 3; 
             heap doubleHeap;
+            userCapacity = std::stoi(argv[2]);
             doubleHeap.capacity = userCapacity;
             doubleHeap.size = 0;
             cin >> command;

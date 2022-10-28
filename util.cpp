@@ -27,8 +27,19 @@ void readCommands(string command, int ADT, heap &Heap){
         readCommands(command, ADT, Heap);
 
     } else if(command.compare("Insert") == 0){
+        if(Heap.capacity == Heap.size){
+            cout << "Error: Insertion to a null/full heap" << '\n';
+            cin >> command;
+            readCommands(command, ADT, Heap);
+        }
         int userKey;
         cin >> userKey;
+        if(cin.fail()){
+            cerr<< "Error: Invalid command" << '\n';
+            cin.clear();
+            cin >> command;
+            readCommands(command, ADT, Heap);
+        }
         insert(userKey, Heap, ADT);
         cin >> command;
         readCommands(command,ADT,Heap);
@@ -92,7 +103,7 @@ void readCommands(string command, int ADT, heap &Heap){
         readCommands(command, ADT, Heap);
 
     } else {
-      cerr << "Invalid command, please use a valid command" << '\n';  
+      cerr << "Error: Invalid command" << '\n';  
       cin >> command;
       readCommands(command, ADT, Heap);
     }
