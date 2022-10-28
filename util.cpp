@@ -54,15 +54,15 @@ void readCommands(string command, int ADT, heap &Heap){
             readCommands(command, ADT, Heap);
         }
     } else if(command.compare("IncreaseKey") == 0){
+         int userKey;
+        int pos;
+        cin >> pos;
+        cin >> userKey;
         if(ADT == 2){
             cerr << "Error: IncreaseKey in a min heap or a null/empty heap" <<'\n';
             cin >> command;
             readCommands(command, ADT, Heap);
         }
-        int userKey;
-        int pos;
-        cin >> pos;
-        cin >> userKey;
         pos = pos -1;
         if(Heap.size == 0 || pos >= Heap.size || userKey <= Heap.A[pos]->key){
             cerr << "Error: Invalid position or newKey in IncreaseKey" << '\n';
