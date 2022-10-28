@@ -35,7 +35,7 @@ void readCommands(string command, int ADT, heap &Heap){
         
     } else if(command.compare("ExtractMax") == 0){ 
         if(ADT == 2 || Heap.size == 0){
-             cerr << "Error: ExtractMax in a min heap or a null/empty heap" << '\n';
+             cerr << "Error: ExtractMax in a max heap or a null/empty heap" << '\n';
              cin >> command;
              readCommands(command, ADT, Heap);
         } else {
