@@ -73,6 +73,9 @@ void extractMin(heap &minHeap, int ADT){
         
     ELEMENT* root = minHeap.a[0];
     minHeap.a[0] = minHeap.a[minHeap.size-1];
+    if(ADT == 3){
+        deleteForMax(minHeap, findMaxDeleteIndex(minHeap));
+    }
     minHeap.size = minHeap.size -1; 
     cout << "ExtractMin: " << root->key << '\n';
     buildHeapMin(minHeap);
@@ -87,6 +90,9 @@ void extractMax(heap &maxHeap, int ADT){
         
     ELEMENT* root = maxHeap.A[0];
     maxHeap.A[0] = maxHeap.A[maxHeap.size-1];
+    if (ADT == 3) {
+        deleteForMin(maxHeap, findMinDeleteIndex(maxHeap));
+    }
     maxHeap.size = maxHeap.size -1; 
     cout <<"ExtractMax: " << root->key << '\n';
     buildHeapMax(maxHeap);
@@ -119,7 +125,7 @@ void insert(int key, heap &Heap, int ADT){
     }
 }
 
-void deleteMax(heap &minHeap, int pos){
+void deleteForMax(heap &minHeap, int pos){
     if(pos < minHeap.size) {
         minHeap.A[pos] = minHeap.A[minHeap.size-1];
         // minHeap.size = minHeap.size -1; 
@@ -151,10 +157,8 @@ void decreaseKey(heap &minHeap, int pos, int newKey){
     }
 }
 
-void deleteMin(heap &maxHeap, int pos){
+void deleteForMin(heap &maxHeap, int pos){
    if(pos < maxHeap.size){
-        cout << "key is ="<<maxHeap.a[pos]->key << endl; 
-        cout << "pos is = "<<pos<< endl;
         maxHeap.a[pos] = maxHeap.a[maxHeap.size-1];
         //maxHeap.size = maxHeap.size -1; 
 
@@ -169,4 +173,28 @@ void deleteMin(heap &maxHeap, int pos){
             heapifyMin(maxHeap, pos);
         }
     }
+}
+
+int findMinDeleteIndex(heap &minHeap) {
+   ELEMENT* largestElement = minHeap.a[0];
+   int largestIndex = 0;
+   for (int i = 0; i < minHeap.size; i++){  
+        if(minHeap.a[i]->key > largestElement->key){
+            largestElement = minHeap.a[i];
+            largestIndex = i;
+        }
+   }
+   return largestIndex;
+}
+
+int findMaxDeleteIndex(heap &maxHeap){
+   ELEMENT* smallestElement = maxHeap.A[0];
+   int smallestIndex = 0;
+   for (int i = 0; i < maxHeap.size; i++){  
+        if(maxHeap.A[i]->key > smallestElement->key){
+            smallestElement = maxHeap.A[i];
+            smallestIndex = i;
+        }
+   }
+   return smallestIndex;
 }

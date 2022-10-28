@@ -21,9 +21,9 @@ void increaseKey(heap &minHeap ,int position, int key);
 
 void decreaseKey(heap &maxHeap, int position, int key);
 
-void deleteMax(heap &maxHeap, int pos);
+void deleteForMax(heap &maxHeap, int pos);
 
-void deleteMin(heap &minHeap, int pos);
+void deleteForMin(heap &minHeap, int pos);
 
 void heapifyMax(heap &maxHeap, int j);
 
@@ -32,4 +32,8 @@ void heapifyMin(heap &minHeap, int j);
 void buildHeapMax(heap &Heap);
 
 void buildHeapMin(heap &Heap);
+
+int findMinDeleteIndex(heap &minHeap);
+
+int findMaxDeleteIndex(heap &maxHeap);
 #endif

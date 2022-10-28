@@ -39,31 +39,15 @@ void readCommands(string command, int ADT, heap &Heap){
              cin >> command;
              readCommands(command, ADT, Heap);
         }
-        if(ADT == 3){
             extractMax(Heap, ADT);
-            deleteMin(Heap, Heap.size - 1);
             cin >> command;
-            readCommands(command, ADT, Heap);
-        } else {
-            extractMax(Heap, ADT);
-            Heap.size = Heap.size - 1;
-            cin >> command;
-            readCommands(command, ADT, Heap);
-        }
-        
-       
+            readCommands(command, ADT, Heap);      
     } else if(command.compare("ExtractMin") == 0){
         if(ADT == 1 || Heap.size == 0){
             cerr << "Error: ExtractMin in a min heap or a null/empty heap" << '\n';
             cin >> command;
             readCommands(command, ADT, Heap);
         }
-        if(ADT == 3){
-            extractMin(Heap, ADT);
-            deleteMin(Heap, Heap.size - 1);
-            cin >> command;
-            readCommands(command, ADT, Heap);
-        } else {
             extractMin(Heap, ADT);
             cin >> command;
             readCommands(command, ADT, Heap);
