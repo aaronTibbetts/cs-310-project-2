@@ -191,7 +191,7 @@ int findMaxDeleteIndex(heap &maxHeap){
    ELEMENT* smallestElement = maxHeap.A[0];
    int smallestIndex = 0;
    for (int i = 0; i < maxHeap.size; i++){  
-        if(maxHeap.A[i]->key > smallestElement->key){
+        if(maxHeap.A[i]->key < smallestElement->key){
             smallestElement = maxHeap.A[i];
             smallestIndex = i;
         }
